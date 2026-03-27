@@ -1,0 +1,19 @@
+# dot files
+/.vscode/launch.json
+/.settings
+/.eide/log
+/.eide.usr.ctx.json
+
+# 这些文件直接由 STM32CubeIDE 生成
+/.cmsis
+/Drivers
+
+# project out
+/build
+/bin
+/obj
+/out
+
+# eide template
+*.ept
+*.eide-template
