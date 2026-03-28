@@ -25,6 +25,8 @@ virtualFolder:
                 - path: Core/Src/stm32g0xx_hal_msp.c
                 - path: Core/Src/app.c
                 - path: Core/Inc/app.h
+                - path: Core/Src/svpwm.c
+                - path: Core/Inc/svpwm.h
               folders: []
     - name: Drivers
       files: []
@@ -174,10 +176,10 @@ targets:
               isStartup: true
               mem:
                 size: "0x40000"
-                startAddr: "0x80000000"
+                startAddr: "0x8000000"
               tag: IROM
             - id: 2
-              isChecked: true
+              isChecked: false
               isStartup: false
               mem:
                 size: "0x0"
@@ -195,7 +197,7 @@ targets:
         proType: 1
         speed: 8000
       STLink:
-        address: "0x80000000"
+        address: "0x8000000"
         bin: ""
         elFile: None
         optionBytes: .eide/bldc_esc.st.option.bytes.ini
