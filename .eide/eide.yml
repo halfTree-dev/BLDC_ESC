@@ -27,6 +27,8 @@ virtualFolder:
                 - path: Core/Inc/app.h
                 - path: Core/Src/svpwm.c
                 - path: Core/Inc/svpwm.h
+                - path: Core/Src/feedback.c
+                - path: Core/Inc/feedback.h
               folders: []
     - name: Drivers
       files: []
