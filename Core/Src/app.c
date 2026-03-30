@@ -29,6 +29,9 @@ void App_Init(ADC_HandleTypeDef* hadc1, I2C_HandleTypeDef* hi2c2, SPI_HandleType
 
     HAL_GPIO_WritePin(LED_OUT_PIN_GPIO_Port, LED_OUT_PIN_Pin, GPIO_PIN_SET);
 
+    __HAL_RCC_SPI1_CLK_ENABLE();
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_SET);
+
     // 启动部分，仅有当 17秒加速 过去后，主循环才会被执行
     Set_Motor_RPM(0, &motor_state);
     for (int i = 100; i < 1800; ++i) {
@@ -40,7 +43,7 @@ void App_Init(ADC_HandleTypeDef* hadc1, I2C_HandleTypeDef* hi2c2, SPI_HandleType
 void App_Loop(ADC_HandleTypeDef* hadc1, I2C_HandleTypeDef* hi2c2, SPI_HandleTypeDef* hspi1, TIM_HandleTypeDef* htim1, UART_HandleTypeDef* huart1) {
     // 闪灯表明主循环正常发生
     HAL_GPIO_TogglePin(LED_OUT_PIN_GPIO_Port, LED_OUT_PIN_Pin);
-    HAL_Delay(100);
+    HAL_Delay(1);
 
     uint32_t time = HAL_GetTick();
     char debug_buffer[128];
